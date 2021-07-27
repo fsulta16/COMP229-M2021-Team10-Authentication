@@ -51,3 +51,8 @@ function onListening() {
     debug_1.default('Listening on ' + bind);
 }
 //# sourceMappingURL=server.js.map
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next() 
+    });

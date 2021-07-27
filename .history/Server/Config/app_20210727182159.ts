@@ -17,16 +17,8 @@ import session from 'express-session';
 import passport from 'passport';
 import passportLocal from 'passport-local';
 
-//modules for cors
-import cors from 'cors';
-
 //authentication objects
 let localStrategy = passportLocal.Strategy; //alias
-import User from '../Models/user';
-
-//module for authentication messaging and error management
-import flash from 'connect-flash';
-
 
 // import "mongoose" - required for DB Access
 import mongoose, { mongo } from 'mongoose';
@@ -66,30 +58,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
-
-// add support for cors
-app.use(cors());
-
-// setup express session
-app.use(session({
-  secret: DBConfig.Secret,
-  saveUninitialized: false,
-  resave: false
-}));
-
-// initialize flash
-app.use(flash());
-
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// implement an Auth strategy
-passport.use(User.createStrategy());
-
-//serialize and deserialize the user data
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 // route redirects
 app.use('/', index);
