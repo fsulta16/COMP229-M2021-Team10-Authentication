@@ -18,7 +18,7 @@ import passport from 'passport';
 import passportLocal from 'passport-local';
 
 //authentication objects
-let localStrategy = passportLocal.Strategy; //alias
+let localStrategy = passportLocal.Strategy;
 
 // import "mongoose" - required for DB Access
 import mongoose, { mongo } from 'mongoose';
