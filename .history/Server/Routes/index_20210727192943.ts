@@ -11,7 +11,6 @@ const router = express.Router();
 export default router;
 
 import mongoose from 'mongoose';
-import { DisplayLoginPage, DisplayRegisterPage, ProcessLoginPage, ProcessLogoutPage, ProcessRegisterPage } from '../Controllers/index';
 
 // define the tournament model
 import tournament from '../Models/tournaments';
@@ -27,21 +26,17 @@ router.get('/', (req, res, next) => {
 
 //Display Login page and Process
 
-/* GET - display login page - with /login . */
+/*GET login page*/ 
+router.get('/login', DisplayLoginPage);
+//Add Register Display and Process
+
+/*POST - process login page when user clicks Login Button*/ 
 router.get('/login', DisplayLoginPage);
 
-/* POST - process login page when user clicks Login Button */
-router.post('/login', ProcessLoginPage);
-
-/* GET - display register page - with /register . */
+/*GET login page*/ 
 router.get('/register', DisplayRegisterPage);
-
-/* POST - process register page when user clicks Register Button */
-router.post('/register', ProcessRegisterPage);
 
 //Process Logout
 
-/* GET - process the logout page - with /logout . */
-router.get('/logout', ProcessLogoutPage);
 
 //module.exports = router;

@@ -11,7 +11,7 @@ const router = express.Router();
 export default router;
 
 import mongoose from 'mongoose';
-import { DisplayLoginPage, DisplayRegisterPage, ProcessLoginPage, ProcessLogoutPage, ProcessRegisterPage } from '../Controllers/index';
+import { DisplayLoginPage, DisplayRegisterPage, ProcessLoginPage, ProcessLogoutPage, ProcessRegisterPage } from '../Controllers';
 
 // define the tournament model
 import tournament from '../Models/tournaments';
